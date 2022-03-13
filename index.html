@@ -93,6 +93,11 @@
         font-weight: 700;
       }
 
+      video {
+        display: block;
+        width: 100%;
+      }
+
       /* ——— HEADER —————————————————————————————————————————————————— */
       /* ——— HEADER —————————————————————————————————————————————————— */
       /* ——— HEADER —————————————————————————————————————————————————— */
@@ -113,11 +118,6 @@
       header .video {
         position: relative;
         z-index: 1;
-      }
-
-      header video {
-        display: block;
-        width: 100%;
       }
 
       header h1 {
@@ -324,6 +324,17 @@
         padding-left: 1.33rem;
       }
 
+      .video-row {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        margin-top: 2.33rem;
+      }
+
+      .video-row .video {
+        width: 33%;
+      }
+
       /* ——— FOOTER —————————————————————————————————————————————————— */
       /* ——— FOOTER —————————————————————————————————————————————————— */
       /* ——— FOOTER —————————————————————————————————————————————————— */
@@ -367,6 +378,8 @@
         color: var(--primary-3);
       }
     </style>
+
+    <script preload src="https://cdn.jsdelivr.net/npm/hls.js@latest"></script>
   </head>
 
   <body>
@@ -378,11 +391,7 @@
         </div>
 
         <div class="video">
-          <video autoplay controls muted> <!--/ loop /-->
-            <!-- <source src="/media/welcome.webm" type="video/webm"/> -->
-            <source src="/media/welcome.mp4" type="video/mp4"/>
-            <p>Sorry, your browser doesn't support embedded videos.</p>
-          </video>
+          <video autoplay controls id="video-intro" muted></video>
         </div>
 
         <div class="background">
@@ -438,6 +447,20 @@
             title=""
           >Register for the next masterclass today!</a>
         </p>
+
+        <div class="video-row">
+          <div class="video">
+            <video controls id="video-tutorial-1"></video>
+          </div>
+
+          <div class="video">
+            <video controls id="video-tutorial-2"></video>
+          </div>
+
+          <div class="video">
+            <video controls id="video-tutorial-3"></video>
+          </div>
+        </div>
       </section>
 
       <section class="inner-wrap callout who">
@@ -495,5 +518,36 @@
         </ul>
       </section>
     </footer>
+
+    <script>
+      const collection = {
+        "intro": "BydRPLRUTgbjQjgyhjD6qFKVnu9E02e5tSETzGJqeRWc",
+        "tutorial-1": "maPBsphxxzh6nY101024WukY01blJdQ1YBcgcZRFT01bzRo",
+        "tutorial-2": "H4gfEXrZN6ZyJ01F00MbiQZTDdcd4xsQjEj2EbdOQS65I",
+        "tutorial-3": "xaIK8Pq3byS3ds47mjNEdpVzaDPUtDD82zM8XopSO68"
+        // "tutorial-4": "YyolMsbnc01LYsKvxNHM9dDDiodQ006dGLfy9M01Sc8heM",
+        // "tutorial-5": "WQ4ZlgCX01B01n00zOiFQutDY9AM5F4UCDKBKZJaag2fxc"
+      };
+
+      function loadVideo() {
+        for (const video in collection) {
+          const videoElement = document.getElementById(`video-${video}`);
+          const videoPoster = `https://image.mux.com/${collection[video]}/thumbnail.png`;
+          const videoSource = `https://stream.mux.com/${collection[video]}.m3u8`;
+
+          if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(videoSource);
+            hls.attachMedia(videoElement);
+          } else if (videoElement.canPlayType("application/vnd.apple.mpegurl")) {
+            videoElement.src = videoSource;
+          }
+
+          videoElement.poster = videoPoster;
+        }
+      }
+
+      loadVideo();
+    </script>
   </body>
 </html>
