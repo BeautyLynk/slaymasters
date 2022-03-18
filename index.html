@@ -4,6 +4,7 @@
     <meta charset="utf-8"/>
     <meta name="description" content="We are a beauty community that elevates and celebrates each other and hair."/>
     <meta name="theme-color" content="#cd4cc3"/>
+    <meta name="viewport" content="width=device-width,initial-scale=1"/>
 
     <meta property="og:image" content="/media/og.png"/>
     <meta property="og:image:height" content="720"/>
@@ -100,7 +101,21 @@
       .inner-wrap {
         margin-right: auto;
         margin-left: auto;
-        width: 800px;
+        min-width: 320px;
+      }
+
+      @media (min-width: 901px) {
+        .inner-wrap {
+          width: 800px;
+        }
+      }
+
+      @media (max-width: 900px) {
+        .inner-wrap {
+          padding-right: 2rem;
+          padding-left: 2rem;
+          width: 100%;
+        }
       }
 
       .button {
@@ -126,7 +141,7 @@
       }
 
       h2 {
-        font-size: 3rem;
+        font-size: 2rem;
         font-weight: 700;
       }
 
@@ -158,8 +173,6 @@
       }
 
       header h1 {
-        width: 100%; height: 12rem;
-
         background-image: url("/media/logo--white.svg");
         background-position: center;
         background-repeat: no-repeat;
@@ -167,6 +180,7 @@
         color: transparent;
         font-size: 0;
         position: relative;
+        width: 100%;
       }
 
       header h1::after {
@@ -184,20 +198,43 @@
       }
 
       header h2 {
-        margin-bottom: 1rem;
+        color: white;
         position: relative;
         text-align: center;
-        top: -2rem;
-        /*
-        background-image: linear-gradient(
-          45deg,
-          hsl(49deg 85% 52%) 1%,
-          hsl(7deg 92% 66%) 50%,
-          hsl(319deg 40% 46%) 99%
-        );
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent;
-        */
+        text-shadow: -2px 2px 0 gray;
+      }
+
+      @media (min-width: 901px) {
+        header h1 {
+          height: 12rem;
+        }
+
+        header h2 {
+          margin-bottom: 1rem;
+          top: -1.5rem;
+        }
+      }
+
+      @media (max-width: 900px) {
+        header h1 {
+          height: 7rem;
+        }
+
+        header h2 {
+          margin-bottom: 3rem;
+        }
+      }
+
+      @media (min-width: 601px) and (max-width: 900px) {
+        header h2 {
+          top: 1vw;
+        }
+      }
+
+      @media (max-width: 600px) {
+        header h2 {
+          top: -1.5vw;
+        }
       }
 
       header .scroll {
@@ -206,6 +243,12 @@
         padding-top: 1rem;
         text-align: center;
         text-transform: uppercase;
+      }
+
+      @media (max-width: 900px) {
+        header .scroll {
+          display: none;
+        }
       }
 
       .background {
@@ -288,7 +331,19 @@
         margin-right: auto;
         margin-left: auto;
         position: relative;
-        width: 500px;
+      }
+
+      @media (min-width: 601px) {
+        .mailing-list form {
+          width: 500px;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .mailing-list form {
+          flex-direction: column;
+          width: 100%;
+        }
       }
 
       .mailing-list label {
@@ -299,6 +354,12 @@
         font-size: 1.33rem;
         padding: 1rem;
         width: 100%;
+      }
+
+      @media (max-width: 600px) {
+        .mailing-list input:not([type="submit"]) {
+          text-align: center;
+        }
       }
 
       .mailing-list button,
@@ -323,18 +384,42 @@
 
       .mailing-list p {
         color: var(--primary-2);
-        font-size: 2rem;
-        margin-bottom: 1rem;
+
+      }
+
+      @media (min-width: 601px) {
+        .mailing-list p {
+          font-size: 2rem;
+          margin-bottom: 1rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .mailing-list p {
+          font-size: 1.5rem;
+          margin-bottom: 0.5rem;
+        }
       }
 
       .mailing-list .response {
-        bottom: -2rem; left: 0;
-
         color: var(--primary-2);
+        left: 0;
         letter-spacing: 0.2rem;
         position: absolute;
         text-transform: uppercase;
         width: 100%;
+      }
+
+      @media (min-width: 601px) {
+        .mailing-list .response {
+          bottom: -2rem;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .mailing-list .response {
+          bottom: -1rem;
+        }
       }
 
       /* ——— CALLOUT ————————————————————————————————————————————————— */
@@ -367,6 +452,13 @@
         margin-bottom: 1rem;
       }
 
+      @media (max-width: 600px) {
+        .callout h3 {
+          line-height: 1;
+          padding-top: 0.5rem;
+        }
+      }
+
       .callout p:not(.focus),
       .callout ul {
         font-size: 1.33rem;
@@ -389,8 +481,20 @@
         margin-top: 2.33rem;
       }
 
-      .video-row .video {
-        width: 33%;
+      @media (min-width: 601px) {
+        .video-row .video {
+          width: 33%;
+        }
+      }
+
+      @media (max-width: 600px) {
+        .video-row .video {
+          width: 100%;
+        }
+
+        .video-row .video:not(:first-child) {
+          display: none;
+        }
       }
 
       /* ——— FOOTER —————————————————————————————————————————————————— */
@@ -401,14 +505,26 @@
         background-color: var(--primary-1);
         color: var(--primary-2);
         font-size: 1.33rem;
-        padding-top: 3.5rem;
-        padding-bottom: 4rem;
+      }
+
+      @media (min-width: 901px) {
+        footer {
+          padding-top: 3.5rem;
+          padding-bottom: 4rem;
+        }
+      }
+
+      @media (max-width: 900px) {
+        footer {
+          padding-top: 1.5rem;
+          padding-bottom: 1.5rem;
+        }
       }
 
       footer .inner-wrap {
         align-items: center;
         display: flex;
-        flex-direction: row-reverse;
+        /*flex-direction: row-reverse;*/
         justify-content: space-between;
       }
 
@@ -427,9 +543,24 @@
 
       footer ul {
         display: flex;
-        justify-content: space-between;
         list-style-type: none;
         width: 100%;
+      }
+
+      @media (min-width: 901px) {
+        justify-content: space-between;
+      }
+
+      @media (max-width: 900px) {
+        footer ul {
+          flex-direction: column;
+        }
+
+        footer a {
+          display: block;
+          padding-top: 0.5rem;
+          padding-bottom: 0.5rem;
+        }
       }
 
       footer a {
@@ -673,7 +804,36 @@
         }
       }
 
+      function loadRandomTutorial() {
+        const ids = [
+          "maPBsphxxzh6nY101024WukY01blJdQ1YBcgcZRFT01bzRo",
+          "H4gfEXrZN6ZyJ01F00MbiQZTDdcd4xsQjEj2EbdOQS65I",
+          "xaIK8Pq3byS3ds47mjNEdpVzaDPUtDD82zM8XopSO68",
+          "YyolMsbnc01LYsKvxNHM9dDDiodQ006dGLfy9M01Sc8heM",
+          "WQ4ZlgCX01B01n00zOiFQutDY9AM5F4UCDKBKZJaag2fxc"
+        ];
+
+        const random = ids[Math.floor(Math.random() * ids.length)];
+
+        if (window.innerWidth < 601) {
+          const videoElement = document.getElementById("video-tutorial-1");
+          const videoPoster = `https://image.mux.com/${random}/thumbnail.png`;
+          const videoSource = `https://stream.mux.com/${random}.m3u8`;
+
+          if (Hls.isSupported()) {
+            const hls = new Hls();
+            hls.loadSource(videoSource);
+            hls.attachMedia(videoElement);
+          } else if (videoElement.canPlayType("application/vnd.apple.mpegurl")) {
+            videoElement.src = videoSource;
+          }
+
+          videoElement.poster = videoPoster;
+        }
+      }
+
       loadVideo();
+      loadRandomTutorial();
 
       // MailChimp
       (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]="EMAIL";ftypes[0]="email";fnames[1]="FNAME";ftypes[1]="text";fnames[2]="LNAME";ftypes[2]="text";fnames[3]="ADDRESS";ftypes[3]="address";fnames[4]="PHONE";ftypes[4]="phone";fnames[5]="BIRTHDAY";ftypes[5]="birthday";}(jQuery));var $mcj = jQuery.noConflict(true);
