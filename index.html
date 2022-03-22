@@ -548,7 +548,9 @@
       }
 
       @media (min-width: 901px) {
-        justify-content: space-between;
+        footer ul {
+          justify-content: space-between;
+        }
       }
 
       @media (max-width: 900px) {
@@ -778,7 +780,8 @@
     <script>
       // Video
       const collection = {
-        "intro": "BydRPLRUTgbjQjgyhjD6qFKVnu9E02e5tSETzGJqeRWc",
+        // "intro": "BydRPLRUTgbjQjgyhjD6qFKVnu9E02e5tSETzGJqeRWc",
+        "intro": "mVPjp00zceZTXbAxj2P1ld5VW28LJJFWAVy8Lyn6lFjg",
         "tutorial-1": "maPBsphxxzh6nY101024WukY01blJdQ1YBcgcZRFT01bzRo",
         "tutorial-2": "H4gfEXrZN6ZyJ01F00MbiQZTDdcd4xsQjEj2EbdOQS65I",
         "tutorial-3": "xaIK8Pq3byS3ds47mjNEdpVzaDPUtDD82zM8XopSO68"
@@ -834,6 +837,13 @@
 
       loadVideo();
       loadRandomTutorial();
+
+      // Tawk
+      let Tawk_API;
+      Tawk_API = Tawk_API || {};
+      const Tawk_LoadStart = new Date();
+
+      (function() {const s1=document.createElement("script");const s0=document.getElementsByTagName("script")[0];s1.async=true;s1.src="https://embed.tawk.to/6230d90ea34c2456412b36da/1fu7cvob8";s1.charset="UTF-8";s1.setAttribute("crossorigin","*'");s0.parentNode.insertBefore(s1,s0);})();
 
       // MailChimp
       (function($) {window.fnames = new Array(); window.ftypes = new Array();fnames[0]="EMAIL";ftypes[0]="email";fnames[1]="FNAME";ftypes[1]="text";fnames[2]="LNAME";ftypes[2]="text";fnames[3]="ADDRESS";ftypes[3]="address";fnames[4]="PHONE";ftypes[4]="phone";fnames[5]="BIRTHDAY";ftypes[5]="birthday";}(jQuery));var $mcj = jQuery.noConflict(true);
