@@ -502,6 +502,13 @@
         }
       }
 
+      .who iframe {
+        width: 100%; height: calc(100vw / 2);
+
+        min-height: 200px;
+        max-height: 500px;
+      }
+
       /* ——— FOOTER —————————————————————————————————————————————————— */
       /* ——— FOOTER —————————————————————————————————————————————————— */
       /* ——— FOOTER —————————————————————————————————————————————————— */
@@ -714,9 +721,14 @@
         <p>Livestream SlayMaster influencers as they share product reviews and their favorite hair hacks to achieve like-worthy hair every time. #nomorebadhairdays</p>
 
         <div class="video video-single">
-          <video autoplay controls id="video-livestream"></video>
+          <!-- <video autoplay controls id="video-livestream"></video> -->
+          <iframe
+            allow="autoplay;fullscreen;"
+            frameborder="0"
+            src="https://player.restream.io?token=cfdda72dffe9462c99fbd9f3c337283f"></iframe>
         </div>
 
+        <!--/
         <p>
           <a
             href="https://slay-masters.us6.list-manage.com/subscribe?u=6d034f7cecff1245334eab20c&id=45e787cbb7"
@@ -724,6 +736,7 @@
             title="Livestreaming coming soon"
           >Coming Soon — Watch Live!</a>
         </p>
+        /-->
       </section>
     </main>
 
@@ -758,7 +771,7 @@
 
           <li>
             <a
-              href="https://form.jotform.com/212016958987065"
+              href="https://tk8wnxtrmyu.typeform.com/to/Lm636BKD"
               target="_blank"
               title="Join our Influencer program"
             >Influencer Application</a>
@@ -766,7 +779,7 @@
 
           <li>
             <a
-              href="https://form.jotform.com/212015397706151"
+              href="https://tk8wnxtrmyu.typeform.com/to/XEFDyG78"
               target="_blank"
               title="Join our Beauty Professional network"
             >SlayMaster Application</a>
@@ -790,7 +803,7 @@
       // Video
       const collection = {
         "intro": "BydRPLRUTgbjQjgyhjD6qFKVnu9E02e5tSETzGJqeRWc",
-        "livestream": "Y4p2uhlj7D01TbiToSqcQEUKRooEkLYAcr9xsTWIg3AI",
+        // "livestream": "Y4p2uhlj7D01TbiToSqcQEUKRooEkLYAcr9xsTWIg3AI",
         "tutorial-1": "maPBsphxxzh6nY101024WukY01blJdQ1YBcgcZRFT01bzRo",
         "tutorial-2": "H4gfEXrZN6ZyJ01F00MbiQZTDdcd4xsQjEj2EbdOQS65I",
         "tutorial-3": "xaIK8Pq3byS3ds47mjNEdpVzaDPUtDD82zM8XopSO68"
